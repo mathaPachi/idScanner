@@ -1,0 +1,49 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Oct 19, 2017 at 09:42 PM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.5.35
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `attendance`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_attendance`
+--
+
+CREATE TABLE `tbl_attendance` (
+  `att_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `rfid_uid` varchar(255) NOT NULL,
+  `punch_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tbl_attendance`
+--
+ALTER TABLE `tbl_attendance`
+  ADD PRIMARY KEY (`att_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbl_attendance`
+--
+ALTER TABLE `tbl_attendance`
+  MODIFY `att_id` int(11) NOT NULL AUTO_INCREMENT;
