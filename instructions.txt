@@ -1,43 +1,49 @@
 
 
-To create an RFID attendance system with an LCD screen that only allows registered cards, you will need the following components:
+To create an Arduino RFID attendance system with an LCD display and a buzzer, you will need the following components:
 
-1. Arduino Uno or compatible board
-2. RFID reader module (such as RC522)
-3. LCD screen (16x2)
-4. Breadboard
-5. Jumper wires
-6. RFID cards/tags
-7. Resistors
+- Arduino board (e.g. Arduino Uno)
+- RFID reader module (e.g. RC522)
+- 16x2 LCD display
+- Buzzer
+- Breadboard
+- Jumper wires
+- RFID tags
 
-Here are the steps to create the RFID attendance system with an LCD screen:
+Here are the steps to create the system:
 
-1. Connect the RFID reader module to the Arduino board as follows:
-  - SDA pin to Arduino pin 10
-  - SCK pin to Arduino pin 13
-  - MOSI pin to Arduino pin 11
-  - MISO pin to Arduino pin 12
-  - IRQ pin is not connected
-  - GND pin to GND
-  - RST pin to Arduino pin 9
-  - 3.3V pin to 3.3V
+1. Connect the RFID reader module to the Arduino board using jumper wires. Connect the following pins:
 
-2. Connect the LCD screen to the Arduino board as follows:
-  - GND pin to GND
-  - VCC pin to 5V
-  - SDA pin to Arduino pin A4
-  - SCL pin to Arduino pin A5
+   - RFID SDA to Arduino digital pin 10
+   - RFID SCK to Arduino digital pin 13
+   - RFID MOSI to Arduino digital pin 11
+   - RFID MISO to Arduino digital pin 12
+   - RFID RST to Arduino digital pin 9
+   - RFID GND to Arduino GND
+   - RFID 3.3V to Arduino 3.3V
 
-3. Connect a resistor between the Arduino pin 9 and 3.3V. This will ensure that the RFID reader module is always powered on.
+2. Connect the LCD display to the Arduino board using jumper wires. Connect the following pins:
 
-4. Upload the following code to the Arduino board:
+   - LCD RS to Arduino digital pin 2
+   - LCD EN to Arduino digital pin 3
+   - LCD D4 to Arduino digital pin 4
+   - LCD D5 to Arduino digital pin 5
+   - LCD D6 to Arduino digital pin 6
+   - LCD D7 to Arduino digital pin 7
+   - LCD VSS to Arduino GND
+   - LCD VDD to Arduino 5V
+   - LCD V0 to a potentiometer (middle pin) and the potentiometer's other pins to Arduino 5V and GND
+
+3. Connect the buzzer to the Arduino board using jumper wires. Connect the buzzer's positive pin to Arduino digital pin 8 and its negative pin to Arduino GND.
+
+4. Download and install the required libraries for the RFID reader module and the LCD display.
+
+5. Write the Arduino code. Here's an example code that you can use as a starting point:
 
 ```
 
 ```
 
-5. Replace "12345678" with the ID of the registered card. You can find the ID by running the example "DumpInfo" sketch that comes with the MFRC522 library.
+6. Upload the code to the Arduino board.
 
-6. Connect the RFID cards/tags to the system.
-
-7. Test the system by scanning the registered card. The LCD screen should display "Welcome!" and stay on for one second before clearing and displaying "RFID Attendance". If an unregistered card is scanned, the LCD screen should display "Unregistered card" and stay on
+7. Test the system by placing an RFID tag near the RFID reader module. The LCD display should show the tag's ID and the buzzer should sound for a second.
